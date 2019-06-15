@@ -1,4 +1,4 @@
-package com.thoughtworks.products;
+package com.thoughtworks.entity;
 
 import java.util.HashMap;
 import java.util.Map;
