@@ -2,13 +2,13 @@ package com.thoughtworks.entity;
 
 public class Product {
 	private int id;
-	private float price;
+	private float price;///
 	private Size size;
 	private Gender gender;
 	private String category;
 	private String name;
 	private String brand;
-	private float discount;
+	private float discount;////
 	public Product(int id, float price, Size size, Gender gender, String category, String name, String brand,
 			float discount) {
 		this.id = id;
@@ -45,6 +45,19 @@ public class Product {
 		return "Product [id=" + id + ", price=" + price + ", size=" + size + ", gender=" + gender + ", category="
 				+ category + ", name=" + name + ", brand=" + brand + ", discount=" + discount + "]";
 	}
+	public float getFinalPrice() {
+		return price*(1-discount/100);
+	}
+	
+	public float getDiscount() {
+		return price*(discount/100);
+	}
+	public float getMRP() {
+		return price;
+	}
+	
+	
+	
 	
 	
 	

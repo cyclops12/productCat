@@ -21,25 +21,22 @@ public class CartController {
 	@Autowired
 	private CartService cartService;
 	
-	@RequestMapping(value = "/add/product", method = RequestMethod.PUT)
+	@RequestMapping(value = "/product", method = RequestMethod.PUT)
 	public ResponseEntity addProduct(@RequestBody AddProductRequest addPRoduct) {
-		 
 		 try {
-			 cartService.addProduct(addPRoduct.getProductID(),addPRoduct.getUserID());
+			 cartService.addProduct(addPRoduct.getProductID(),addPRoduct.getUserId());
 		 }
 		 catch (Exception e) {
 			e.printStackTrace();
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 		}
 		 return ResponseEntity.ok().build();
-		 
 	 }
 	
-	@RequestMapping(value = "/remove/product", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/product", method = RequestMethod.DELETE)
 	public ResponseEntity removeProduct(@RequestBody DeleteProductRequest deleteProductReq) {
-		
 		 try {
-			 cartService.deleteProduct(deleteProductReq.getProductId(),deleteProductReq.getUserID());
+			 cartService.deleteProduct(deleteProductReq.getProductId(),deleteProductReq.getUserId());
 		 }
 		 catch (Exception e) {
 			e.printStackTrace();
@@ -48,9 +45,8 @@ public class CartController {
 		 return ResponseEntity.ok().build();
 	}
 	
-	@RequestMapping(value = "/view", method = RequestMethod.GET)
+	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ResponseEntity<Cart> view(@RequestParam(value="userID") Integer userID) {
-		
 		 try {
 			return ResponseEntity.ok().body(cartService.getCart(userID));
 		 }
@@ -58,7 +54,6 @@ public class CartController {
 			e.printStackTrace();
 			return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 		}
-		 
 	}
 	
 	

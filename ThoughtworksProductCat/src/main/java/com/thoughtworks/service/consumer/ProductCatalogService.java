@@ -11,13 +11,13 @@ import com.thoughtworks.entity.Product;
 
 @Service
 public class ProductCatalogService {
-	private static final String url = "http://demo7594616.mockable.io/products";
+	private static final String PRODUCT_CATLALOG_SERVICE = "http://demo7594616.mockable.io/products";
 	
 	private Map<Integer, Product> productCatalog;
 	public void getProducts() {
 		RestTemplate restTemplate = new RestTemplate();
 
-		ResponseEntity<String> response = restTemplate.getForEntity(url, String.class);
+		ResponseEntity<String> response = restTemplate.getForEntity(PRODUCT_CATLALOG_SERVICE, String.class);
 		String body = response.getBody();
 		productCatalog = ProductParser.parseProduct(body);
 	}

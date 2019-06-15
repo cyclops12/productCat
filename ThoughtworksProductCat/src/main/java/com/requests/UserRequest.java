@@ -1,17 +1,17 @@
 package com.requests;
 
 public class UserRequest {
-	private int userID;
+	private int userId;
 
 	
-	public UserRequest(int userID) {
+	public UserRequest(int userId) {
 		super();
-		this.userID = userID;
+		this.userId = userId;
 	}
 
 
-	public int getUserID() {
-		return userID;
+	public int getUserId() {
+		return userId;
 	}
 
 

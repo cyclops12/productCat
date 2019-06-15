@@ -20,12 +20,6 @@ public class Order {
 		calculateBillingAmount();
 	}
 
-	private void calculateBillingAmount() {
-		totalAmount = 0;
-		discount = 0;
-		finalAmount = 0;
-	}
-
 	public String getOrderID() {
 		return orderID;
 	}
@@ -74,6 +68,15 @@ public class Order {
 			return false;
 		return true;
 	}
+	
+	private void calculateBillingAmount() {
+		for(Product product:products.keySet()) {
+			totalAmount = totalAmount+product.getMRP();
+			discount = discount+product.getDiscount();
+			finalAmount = finalAmount+product.getFinalPrice();
+		}
+	}
+
 	
 
 }

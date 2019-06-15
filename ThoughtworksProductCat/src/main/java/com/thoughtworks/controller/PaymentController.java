@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.requests.AddProductRequest;
 import com.requests.PaymentRequest;
 import com.thoughtwork.service.PaymentService;
 
@@ -19,11 +18,11 @@ public class PaymentController {
 	@Autowired
 	private PaymentService paymentService;
 	
-	@RequestMapping(value = "/do", method = RequestMethod.PUT)
+	@RequestMapping(value = "/intiate", method = RequestMethod.PUT)
 	public ResponseEntity doPayment(@RequestBody PaymentRequest paymentRequest) {
 		 
 		 try {
-			 paymentService.makePayment(paymentRequest.getUserID(),paymentRequest.getOrderID());
+			 paymentService.initPayment(paymentRequest.getUserId(),paymentRequest.getOrderId());
 		 }
 		 catch (Exception e) {
 			e.printStackTrace();

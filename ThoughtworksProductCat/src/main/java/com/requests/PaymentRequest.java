@@ -1,17 +1,17 @@
 package com.requests;
 
 public class PaymentRequest extends UserRequest{
-	private String orderID;
+	private String orderId;
 
 	
-	public PaymentRequest(String orderID,int userID) {
-		super(userID);
-		this.orderID = orderID;
+	public PaymentRequest(String orderId,int userId) {
+		super(userId);
+		this.orderId = orderId;
 	}
 
 
-	public String getOrderID() {
-		return orderID;
+	public String getOrderId() {
+		return orderId;
 	}
 	
 
