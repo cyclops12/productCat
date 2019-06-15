@@ -8,9 +8,9 @@ public class Product {
 	private String category;
 	private String name;
 	private String brand;
-	private String discount;
+	private float discount;
 	public Product(int id, float price, Size size, Gender gender, String category, String name, String brand,
-			String discount) {
+			float discount) {
 		this.id = id;
 		this.price = price;
 		this.size = size;
