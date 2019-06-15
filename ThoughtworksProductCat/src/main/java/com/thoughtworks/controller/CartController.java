@@ -24,7 +24,7 @@ public class CartController {
 	@RequestMapping(value = "/product", method = RequestMethod.PUT)
 	public ResponseEntity addProduct(@RequestBody AddProductRequest addPRoduct) {
 		 try {
-			 cartService.addProduct(addPRoduct.getProductID(),addPRoduct.getUserId());
+			 cartService.addProduct(addPRoduct.getProduct(),addPRoduct.getUserId());
 		 }
 		 catch (Exception e) {
 			e.printStackTrace();
@@ -36,7 +36,7 @@ public class CartController {
 	@RequestMapping(value = "/product", method = RequestMethod.DELETE)
 	public ResponseEntity removeProduct(@RequestBody DeleteProductRequest deleteProductReq) {
 		 try {
-			 cartService.deleteProduct(deleteProductReq.getProductId(),deleteProductReq.getUserId());
+			 cartService.deleteProduct(deleteProductReq.getProduct(),deleteProductReq.getUserId());
 		 }
 		 catch (Exception e) {
 			e.printStackTrace();
@@ -46,7 +46,7 @@ public class CartController {
 	}
 	
 	@RequestMapping(value = "/", method = RequestMethod.GET)
-	public ResponseEntity<Cart> view(@RequestParam(value="userID") Integer userID) {
+	public ResponseEntity<Cart> view(@RequestParam(value="userId") Integer userID) {
 		 try {
 			return ResponseEntity.ok().body(cartService.getCart(userID));
 		 }

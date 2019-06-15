@@ -1,16 +1,21 @@
 package com.requests;
 
+import com.thoughtworks.entity.Product;
+
 public class AddProductRequest extends UserRequest {
-	private Integer productID;
+	private Product product;
 
-	public Integer getProductID() {
-		return productID;
+	public AddProductRequest(int userId, Product product) {
+		super(userId);
+		this.product = product;
 	}
 
-	public AddProductRequest(int userID, Integer productID) {
-		super(userID);
-		this.productID = productID;
+	public Product getProduct() {
+		return product;
 	}
+	
+
+	
 
 	
 

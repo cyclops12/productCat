@@ -1,16 +1,20 @@
 package com.requests;
 
+import com.thoughtworks.entity.Product;
+
 public class DeleteProductRequest extends UserRequest {
-	private int productId;
+	private Product product;
 
-	public int getProductId() {
-		return productId;
+	public DeleteProductRequest(int userId, Product product) {
+		super(userId);
+		this.product = product;
 	}
 
-	public DeleteProductRequest(int userID, int productId) {
-		super(userID);
-		this.productId = productId;
+	public Product getProduct() {
+		return product;
 	}
+
+	
 
 	
 	

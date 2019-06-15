@@ -6,25 +6,24 @@ import java.util.Map;
 import javax.annotation.PostConstruct;
 
 import com.thoughtworks.entity.Cart;
-import com.thoughtworks.service.consumer.ProductCatalogService;
+import com.thoughtworks.entity.Product;
 
 public class CartService {
     //userid::cart
 	private Map<Integer, Cart> userCart;
 
-	private ProductCatalogService productCatalogService;
 
 	@PostConstruct
 	public void init() {
 		userCart = new HashMap<>();
 	}
 
-	public void addProduct(Integer productID, Integer userID) {
+	public void addProduct(Product product, Integer userID) {
 
 		if (!userCart.containsKey(userID)) {
 			createCart(userID);
 		}
-		userCart.get(userID).addProduct(productCatalogService.getProduct(productID));
+		userCart.get(userID).addProduct(product);
 	}
 
 	private void createCart(Integer userID) {
@@ -32,8 +31,8 @@ public class CartService {
 
 	}
 
-	public void deleteProduct(int productId, int userID) {
-		userCart.get(userID).removeProduct(productCatalogService.getProduct(productId));
+	public void deleteProduct(Product product, int userID) {
+		userCart.get(userID).removeProduct(product);
 		
 	}
 

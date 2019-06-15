@@ -11,11 +11,4 @@ import com.thoughtworks.service.consumer.ProductCatalogService;
 public class AppController {
 	@Autowired
 	private ProductCatalogService productCatalogService;
-
-
-	
-	
-	
-	
-
 }
