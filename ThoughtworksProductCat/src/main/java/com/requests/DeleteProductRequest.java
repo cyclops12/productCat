@@ -7,8 +7,11 @@ public class DeleteProductRequest extends UserRequest {
 		return productId;
 	}
 
-	public void setProductId(int productId) {
+	public DeleteProductRequest(int userID, int productId) {
+		super(userID);
 		this.productId = productId;
 	}
+
+	
 	
 }

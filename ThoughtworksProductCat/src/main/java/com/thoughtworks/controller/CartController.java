@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.requests.AddProductRO;
+import com.requests.AddProductRequest;
 import com.requests.DeleteProductRequest;
 import com.thoughtwork.service.CartService;
 import com.thoughtworks.entity.Cart;
@@ -21,8 +21,8 @@ public class CartController {
 	@Autowired
 	private CartService cartService;
 	
-	@RequestMapping(value = "/addProduct", method = RequestMethod.POST)
-	public ResponseEntity addProduct(@RequestBody AddProductRO addPRoduct) {
+	@RequestMapping(value = "/add/product", method = RequestMethod.PUT)
+	public ResponseEntity addProduct(@RequestBody AddProductRequest addPRoduct) {
 		 
 		 try {
 			 cartService.addProduct(addPRoduct.getProductID(),addPRoduct.getUserID());
@@ -35,7 +35,7 @@ public class CartController {
 		 
 	 }
 	
-	@RequestMapping(value = "/removeProduct", method = RequestMethod.DELETE)
+	@RequestMapping(value = "/remove/product", method = RequestMethod.DELETE)
 	public ResponseEntity removeProduct(@RequestBody DeleteProductRequest deleteProductReq) {
 		
 		 try {
@@ -48,7 +48,7 @@ public class CartController {
 		 return ResponseEntity.ok().build();
 	}
 	
-	@RequestMapping(value = "/viewCart", method = RequestMethod.GET)
+	@RequestMapping(value = "/view", method = RequestMethod.GET)
 	public ResponseEntity<Cart> view(@RequestParam(value="userID") Integer userID) {
 		
 		 try {

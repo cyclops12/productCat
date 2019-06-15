@@ -31,4 +31,10 @@ public class Cart {
 		return products;
 	}
 
+	public Map<Product, Integer> getProducts() {
+		return products;
+	}
+	
+	
+
 }

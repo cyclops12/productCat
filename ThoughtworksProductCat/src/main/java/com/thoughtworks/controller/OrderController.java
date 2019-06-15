@@ -17,7 +17,7 @@ public class OrderController {
 	@Autowired
 	private OrderService orderService;
 
-	@RequestMapping(value = "/placeOrder", method = RequestMethod.POST)
+	@RequestMapping(value = "/place", method = RequestMethod.POST)
 	public ResponseEntity placeOrder(@RequestBody OrderRequest orderRequest) {
 		try {
 			String orderID = orderService.placeOrder(orderRequest.getUserID());
